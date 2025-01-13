@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachable Machine Image Model</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+    <h2>Teachable Machine Image Model</h2>
+
+    <!-- Image Upload -->
+    <div id="upload-container">
+        <input type="file" id="imageUpload" accept="image/*">
+    </div>
+
+    <!-- Train Model Button -->
+    <button type="button" id="trainButton" onclick="trainModel()" disabled>Train Model</button>
+    <br><br>
+
+    <!-- Loading Bar -->
+    <div id="loadingContainer">
+        <p>Training in progress...</p>
+        <progress id="loadingBar" value="0" max="100"></progress>
+    </div>
+    <br>
+
+    <!-- Run Prediction Button -->
+    <button type="button" id="predictButton" onclick="runPrediction()" disabled>Run Prediction</button>
+    <br><br>
+
+    <!-- Image Display Container -->
+    <div id="webcam-container"></div>
+
+    <!-- Prediction Results Title -->
+    <div id="results-title">Final Results</div>
+
+    <!-- Prediction Results -->
+    <div id="label-container"></div>
+
+    <!-- Modal for Full-Size Image -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="fullImage">
+        <div id="caption"></div>
+    </div>
+
+    <!-- Load TensorFlow and Teachable Machine JS libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
